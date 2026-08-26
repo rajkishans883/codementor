@@ -1,11 +1,8 @@
 from fastapi import FastAPI
-
+from app.routes import auth
+from app.routes import problem
 app = FastAPI(title="CodeMentor API")
 
-@app.get("/")
-def root():
-    return {"message": "CodeMentor API is running"}
 
-@app.get("/health")
-def health():
-    return {"status": "healthy"}
+app.include_router(auth.router)
+app.include_router(problem.router)
