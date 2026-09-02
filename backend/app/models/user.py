@@ -71,3 +71,4 @@ class User(Base):
     conversations = relationship("Conversation", back_populates="user", cascade="all, delete-orphan")
     # code_snippets = relationship("CodeSnippet", back_populates="user", cascade="all, delete-orphan")
     code_snippets = relationship("CodeSnippet", back_populates="user", cascade="all, delete-orphan")
+    coding_sessions = relationship("CodingSession", back_populates="user", cascade="all, delete-orphan")

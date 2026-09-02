@@ -12,11 +12,15 @@ class Message(Base):
     id = Column(Integer, primary_key=True, index=True)
     conversation_id = Column(Integer, ForeignKey("conversations.id", ondelete="CASCADE"), nullable=False, index=True)
 
-    code = Column(Text, nullable=True)           # User's code
-    question = Column(Text, nullable=False)      # User's question
-    answer = Column(Text, nullable=False)        # AI's answer
-    task = Column(String(50), default="general") # general / review / explain / optimize
-    sources = Column(Text, nullable=True)        # Retrieved sources from RAG
+    role = Column(String(50), nullable=False)          # "user" or "assistant"
+    content = Column(Text, nullable=False)
+    
+    # Optional: keep these if you still want them
+    code = Column(Text, nullable=True)
+    question = Column(Text, nullable=True)
+    answer = Column(Text, nullable=True)
+    task = Column(String(50), nullable=True)
+    sources = Column(Text, nullable=True)
 
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 

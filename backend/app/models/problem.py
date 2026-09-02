@@ -3,6 +3,7 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, Enum as SQLEnum, Boolean, Float
 from sqlalchemy.sql import func
 from app.database import Base
+from sqlalchemy.orm import relationship
 import enum
 
 
@@ -61,3 +62,6 @@ class Problem(Base):
     # Timestamps
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
+
+    coding_sessions = relationship("CodingSession", back_populates="problem")
+    test_cases = relationship("ProblemTestCase", back_populates="problem", cascade="all, delete-orphan")
