@@ -50,6 +50,7 @@ class Problem(Base):
     starter_code_javascript = Column(Text, nullable=True)
     starter_code_java = Column(Text, nullable=True)
     starter_code_cpp = Column(Text, nullable=True)
+    function_name = Column(String(100), nullable=True)
 
     # For Competitive problems
     time_limit = Column(Float, nullable=True)      # in seconds

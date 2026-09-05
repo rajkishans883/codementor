@@ -4,3 +4,41 @@ __pycache__/
 poetry.lock
 .pytest_cache/
 .faiss/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+.env.*
+
+# Virtualenv
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local DB
+*.sqlite
+*.db
+
+# Docker
+.dockerignore
+
+# Test coverage
+.htmlcov/
+.coverage

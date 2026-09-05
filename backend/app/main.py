@@ -5,8 +5,12 @@ from app.routes import sessions
 from app.routes import chat
 from app.routes import analysis
 from app.routes import test_cases
+from app.routes import submissions
 app = FastAPI(title="CodeMentor API")
 
+
+
+app.include_router(submissions.router)
 
 app.include_router(chat.router)
 
